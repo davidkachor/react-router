@@ -1,11 +1,5 @@
 import React, { useState } from 'react'
-import {
-	BrowserRouter,
-	Switch,
-	Route,
-	NavLink,
-	Redirect,
-} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Homepage from './pages/Homepage/Homepage'
 import Login from './pages/Login/Login'
 import Page404 from './pages/Page404/Page404'
@@ -25,36 +19,35 @@ function App() {
 	return (
 		<>
 			<BrowserRouter>
-				<Switch>
+				<Routes>
 					<Route
 						path="/"
-						exact={true}
-						component={() =>
-							isLoggedIn ? <Redirect to="/profile" /> : <Redirect to="login" />
+						element={
+							isLoggedIn ? <Navigate to="/profile" /> : <Navigate to="login" />
 						}
 					/>
 					<Route
 						path="/login"
-						component={() =>
+						element={
 							!isLoggedIn ? (
 								<Login onLogIn={loginHandler} />
 							) : (
-								<Redirect to="/profile" />
+								<Navigate to="/profile" />
 							)
 						}
 					/>
 					<Route
 						path="/profile"
-						component={() =>
+						element={
 							isLoggedIn ? (
 								<Homepage onLogOut={logoutHandler} />
 							) : (
-								<Redirect to="/login" />
+								<Navigate to="/login" />
 							)
 						}
 					/>
-					<Route path="*" component={Page404} />
-				</Switch>
+					<Route path="*" element={<Page404 />} />
+				</Routes>
 			</BrowserRouter>
 		</>
 	)

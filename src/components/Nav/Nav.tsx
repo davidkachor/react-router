@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import React from 'react'
 
@@ -21,11 +21,11 @@ const Button = styled.button`
 `
 
 const Nav: React.FC<{ onLogOut: () => void }> = props => {
-	const history = useHistory()
+	const navigate = useNavigate()
 
 	const logoutHandler = () => {
 		props.onLogOut()
-		history.push('/login')
+		navigate('/login')
 	}
 
 	return (

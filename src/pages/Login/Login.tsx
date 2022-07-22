@@ -1,5 +1,5 @@
 import React, { FormEvent, useId, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -44,14 +44,14 @@ const Submit = styled.button.attrs({
 
 const Login: React.FC<{ onLogIn: () => void }> = props => {
 	const id = useId()
-	const history = useHistory()
+	const navigate = useNavigate()
 	const [inputs, setInputs] = useState({ email: '', password: '' })
 	console.log('login')
 
 	const submitHandler: React.FormEventHandler = event => {
 		event.preventDefault()
 		props.onLogIn()
-		history.push('/profile')
+		navigate('/profile')
 	}
 
 	return (

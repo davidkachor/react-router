@@ -8,14 +8,14 @@ const Container = styled.div`
 `
 
 const Homepage: React.FC<{ onLogOut: () => void }> = props => {
-    console.log('profile')
+	console.log('profile')
 
-    return (
-        <Container>
-            <Nav onLogOut={props.onLogOut} />
-            <Main />
-        </Container>
-    )
+	return (
+		<Container>
+			<Nav onLogOut={props.onLogOut} />
+			<Main />
+		</Container>
+	)
 }
 
 export default Homepage

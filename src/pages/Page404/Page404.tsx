@@ -15,7 +15,7 @@ const Message = styled.p`
 	font-size: 18px;
 	display: flex;
 	flex-direction: column;
-	
+
 	& span {
 		text-align: center;
 		font-size: 27px;
@@ -23,11 +23,13 @@ const Message = styled.p`
 `
 
 const Page404 = () => {
-    return (
-        <Container>
-            <Message><span>404</span> This page does not exist</Message>
-        </Container>
-    )
+	return (
+		<Container>
+			<Message>
+				<span>404</span> This page does not exist
+			</Message>
+		</Container>
+	)
 }
 
 export default Page404
